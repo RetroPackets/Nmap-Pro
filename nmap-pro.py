@@ -1,4 +1,4 @@
-import socket 
+import socket
 import threading
 import os
 
@@ -18,9 +18,11 @@ print(cyan +"""
 |  INSTAGRAM : @retropacketz                   |
 ------------------------------------------------""")
 print ("")
-print (red +"WARNING: This scan can take a while depending on your network speed")
-print (red + "so have a cup of coffee and relax until finished 😎")
-print (cyan +"")
+print(
+    f"{red}WARNING: This scan can take a while depending on your network speed"
+)
+print(f"{red}so have a cup of coffee and relax until finished 😎")
+print(f"{cyan}")
 
 
 target = input("""Target: """)  # scan local host
@@ -29,7 +31,7 @@ def port_scanner(port):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((target, port))
-        print(green + f"""[*] Port {port} is open""")
+        print(f"""{green}[*] Port {port} is open""")
     except:
         pass
 
@@ -40,41 +42,41 @@ for port in range(1,10000):
 
 
 print ("")
-print (Y + "[*] Confirming Results For " + target,  "With Nmap...")
-print (green + "")
-os.system("sudo nmap --top-ports 50 " + target)
+print(f"{Y}[*] Confirming Results For {target}", "With Nmap...")
+print(f"{green}")
+os.system(f"sudo nmap --top-ports 50 {target}")
 
 print ("")
-print (Y + "[*] Scanning Using TCP Protocols For: " + target)
-print (green + "")
-os.system("sudo nmap -sT " + target)
+print(f"{Y}[*] Scanning Using TCP Protocols For: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -sT {target}")
 
 
 
 print ("")
-print (Y + "[*] Scanning Using UDP Protocols For: " + target)
-print(green + "")
-os.system("sudo nmap -sU " + target)
+print(f"{Y}[*] Scanning Using UDP Protocols For: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -sU {target}")
 
 print ("")
-print (Y + "[*] Performing OS/Service Detection On: " + target)
-print (green + "")
-os.system("sudo nmap -A -T4 " + target)
+print(f"{Y}[*] Performing OS/Service Detection On: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -A -T4 {target}")
 
 print ("")
-print (Y + "[*] Detecting Service/Daemon Versions For: " + target)
-print (green + "")
-os.system("sudo nmap -sV " + target)
+print(f"{Y}[*] Detecting Service/Daemon Versions For: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -sV {target}")
 
 print ("")
-print (Y + "[*] Performing CVE Detection For: " + target)
-print (green + "")
-os.system("sudo nmap -Pn --script vuln " + target)
+print(f"{Y}[*] Performing CVE Detection For: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -Pn --script vuln {target}")
 
 print ("")
-print (Y + "[*] Detecting Malware Infections On Remote Hosts For: " + target)
-print (green + "")
-os.system("sudo nmap -sV --script=http-malware-host " + target)
+print(f"{Y}[*] Detecting Malware Infections On Remote Hosts For: {target}")
+print(f"{green}")
+os.system(f"sudo nmap -sV --script=http-malware-host {target}")
 
 print ("")
 #print (Y +"")
